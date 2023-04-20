@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Chat App with Django-channels!</title>
+        {% load static %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'chat/css/styles.css' %}">
+        <meta name="viewport" content="user-scalable=no, width=device-width">
+    </head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h2>Room Chat</h2>
+                    <a href="{% url 'room_settings' room_code=room_name %}">
+                        <i class="fa fa-cog" id="btn-menu"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="chat">
+            <div class="container">
+                <div class="chat-content" id="chat-content">
+                    <p id="loadingp">Loading ... </p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <div id="form-chat">
+                <div class="input">
+                    <input type="text" id="message" placeholder="Type a message..." autocomplete="off" autofocus="on" required>
+                    <button onclick="send_message()" type="submit" id="send-message">
+                        <i class="fa fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+       
+    </div>
+    <script>
+        const current_user = "{{request.user}}"
+    </script>
+
+    
+    
+    <script type="text/javascript" src="{% static 'chat/js/chat.js' %} "></script>
+</body>
+</html>
